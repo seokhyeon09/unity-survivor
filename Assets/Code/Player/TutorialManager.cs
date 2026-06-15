@@ -22,7 +22,8 @@ public class TutorialManager : MonoBehaviour
             GameObject textGO = new GameObject("TutorialText");
             textGO.transform.SetParent(canvasGO.transform, false);
             tutorialText = textGO.AddComponent<Text>();
-            tutorialText.font = Resources.GetBuiltinResource<Font>("LegacyRuntime.ttf");
+            Font krFont = Resources.Load<Font>("neodgm");
+            tutorialText.font = krFont != null ? krFont : Resources.GetBuiltinResource<Font>("LegacyRuntime.ttf");
             tutorialText.fontSize = 28;
             tutorialText.alignment = TextAnchor.UpperCenter;
             tutorialText.horizontalOverflow = HorizontalWrapMode.Overflow;

@@ -110,8 +110,9 @@ public class LevelManager : MonoBehaviour
             txt.alignment = TextAnchor.MiddleCenter;
             txt.color = Color.white;
             txt.fontStyle = FontStyle.Bold;
-            // 시스템 폰트 할당
-            txt.font = Resources.GetBuiltinResource<Font>("LegacyRuntime.ttf");
+            // 시스템 폰트 할당 (웹 빌드 한글 깨짐 방지용으로 폰트 로드)
+            Font krFont = Resources.Load<Font>("neodgm");
+            txt.font = krFont != null ? krFont : Resources.GetBuiltinResource<Font>("LegacyRuntime.ttf");
             txtGO.GetComponent<RectTransform>().sizeDelta = new Vector2(250, 60);
         };
 
@@ -155,7 +156,8 @@ public class LevelManager : MonoBehaviour
         titleTxt.color = Color.white;
         titleTxt.fontSize = 60;
         titleTxt.fontStyle = FontStyle.Bold;
-        titleTxt.font = Resources.GetBuiltinResource<Font>("LegacyRuntime.ttf");
+        Font krFontTitle = Resources.Load<Font>("neodgm");
+        titleTxt.font = krFontTitle != null ? krFontTitle : Resources.GetBuiltinResource<Font>("LegacyRuntime.ttf");
         RectTransform titleRT = titleGO.GetComponent<RectTransform>();
         titleRT.sizeDelta = new Vector2(500, 100);
         titleRT.anchoredPosition = new Vector2(0, 100);

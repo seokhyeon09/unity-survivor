@@ -1,0 +1,37 @@
+{
+  "cleanUrls": true,
+  "headers": [
+    {
+      "source": "/(.*).gz",
+      "headers": [
+        { "key": "Content-Encoding", "value": "gzip" }
+      ]
+    },
+    {
+      "source": "/(.*).br",
+      "headers": [
+        { "key": "Content-Encoding", "value": "br" }
+      ]
+    },
+    {
+      "source": "/(.*).wasm",
+      "headers": [
+        { "key": "Content-Type", "value": "application/wasm" }
+      ]
+    },
+    {
+      "source": "/(.*).wasm.gz",
+      "headers": [
+        { "key": "Content-Type", "value": "application/wasm" },
+        { "key": "Content-Encoding", "value": "gzip" }
+      ]
+    },
+    {
+      "source": "/(.*).wasm.br",
+      "headers": [
+        { "key": "Content-Type", "value": "application/wasm" },
+        { "key": "Content-Encoding", "value": "br" }
+      ]
+    }
+  ]
+}
